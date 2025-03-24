@@ -14,7 +14,13 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Imports: here
+Imports: here,
+    dplyr (>= 1.1.4),
+    ggplot2 (>= 3.5.1),
+    ggthemes (>= 5.1.0),
+    knitr (>= 1.50),
+    readr (>= 2.1.5),
+    rmarkdown (>= 2.29)
 Suggests: devtools,
     git2r
 URL: https://github.com/annakrystalli/rrcompendium
