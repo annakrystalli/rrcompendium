@@ -11,3 +11,4 @@ analysis
 ^project\.Rcheck$
 ^project.*\.tar\.gz$
 ^project.*\.tgz$
+^attic$
