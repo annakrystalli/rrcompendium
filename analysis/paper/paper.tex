@@ -350,8 +350,26 @@ constant rate \(c\) who then have a probability of colonizing an open
 patch that is simply proportional to the fraction of available patches,
 \(1 - n/N\).
 
-Figure 1 shows the results of two exact SSA simulations of the classic
-patch model of Levins (1969).
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{paper_files/figure-pdf/fig-site-simulation-1.pdf}}
+
+}
+
+\caption{\label{fig-site-simulation}Population dynamics from a Gillespie
+simulation of the Levins model with large (N=1000, panel A) and small
+(N=100, panel B) number of sites (blue) show relatively weaker effects
+of demographic noise in the bigger system. Models are otherwise
+identical, with e = 0.2 and c = 1 (code in appendix A). Theoretical
+predictions for mean and plus/minus one standard deviation shown in
+horizontal re dashed lines.}
+
+\end{figure}%
+
+Figure~\ref{fig-site-simulation} shows the results of two exact SSA
+simulations of the classic patch model of Levins (1969).
 
 \section{Conclusions}\label{conclusions}
 

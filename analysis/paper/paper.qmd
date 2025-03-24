@@ -30,7 +30,27 @@ format:
 editor: 
   markdown: 
     wrap: 72
+execute: 
+  echo: false
+  warning: false
+  message: false
 ---
+
+```{r}
+#| label: setup
+#| include: false
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(ggthemes)
+```
+
+```{r}
+#| label: set-theme
+theme_set(theme_grey())
+# create colour palette
+colours <- ptol_pal()(2)
+```
 
 # Introduction: Noise the nuisance
 
@@ -178,7 +198,31 @@ constant rate $c$ who then have a probability of colonizing an open
 patch that is simply proportional to the fraction of available patches,
 $1 - n/N$.
 
-Figure 1 shows the results of two exact SSA simulations of the classic
+```{r}
+#| label: fig-site-simulation
+#| fig-cap: "Population dynamics from a Gillespie simulation of the Levins model with large (N=1000, panel A) and small (N=100, panel B) number of sites (blue) show relatively weaker effects of demographic noise in the bigger system. Models are otherwise identical, with e = 0.2 and c = 1 (code in appendix A). Theoretical predictions for mean and plus/minus one standard deviation shown in horizontal re dashed lines."
+# load-data
+data <- read_csv(here::here("analysis", "data", "gillespie.csv"), col_types = "cdiddd")  
+
+# recode-data
+data <- data %>% 
+  mutate(system_size = recode(system_size, 
+                              large = "A. 1000 total sites", 
+                              small = "B. 100 total sites")) 
+
+# plot-gillespie
+data %>%
+  ggplot(aes(x = time)) + 
+  geom_hline(aes(yintercept = mean), lty=2, col=colours[2]) + 
+  geom_hline(aes(yintercept = minus_sd), lty=2, col=colours[2]) + 
+  geom_hline(aes(yintercept = plus_sd), lty=2, col=colours[2]) + 
+  geom_line(aes(y = n), col=colours[1]) +
+  facet_wrap(~system_size, scales = "free_y") 
+
+```
+
+
+@fig-site-simulation shows the results of two exact SSA simulations of the classic
 patch model of Levins (1969).
 
 # Conclusions
