@@ -17,3 +17,5 @@ RoxygenNote: 7.3.2
 Imports: here
 Suggests: devtools,
     git2r
+URL: https://github.com/annakrystalli/rrcompendium
+BugReports: https://github.com/annakrystalli/rrcompendium/issues
