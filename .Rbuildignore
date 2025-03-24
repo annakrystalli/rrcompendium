@@ -12,3 +12,6 @@ analysis
 ^project.*\.tar\.gz$
 ^project.*\.tgz$
 ^attic$
+^rrcompendium\.Rcheck$
+^rrcompendium.*\.tar\.gz$
+^rrcompendium.*\.tgz$
